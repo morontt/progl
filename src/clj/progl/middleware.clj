@@ -3,7 +3,6 @@
             [clojure.tools.logging :as log]
             [progl.layout :refer [*app-context* error-page]]
             [ring.middleware.anti-forgery :refer [wrap-anti-forgery]]
-            [ring.middleware.webjars :refer [wrap-webjars]]
             [ring.middleware.format :refer [wrap-restful-format]]
             [progl.config :refer [env]]
             [ring-ttl-session.core :refer [ttl-memory-store]]
@@ -54,7 +53,6 @@
 
 (defn wrap-base [handler]
   (-> ((:middleware defaults) handler)
-      wrap-webjars
       (wrap-defaults
         (-> site-defaults
             (assoc-in [:security :anti-forgery] false)
