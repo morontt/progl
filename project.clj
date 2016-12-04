@@ -12,7 +12,6 @@
                  [luminus-migrations "0.2.8"]
                  [luminus-nrepl "0.1.4"]
                  [luminus/ring-ttl-session "0.3.1"]
-                 [markdown-clj "0.9.90"]
                  [metosin/ring-http-response "0.8.0"]
                  [mount "0.1.10"]
                  [mysql/mysql-connector-java "5.1.6"]
