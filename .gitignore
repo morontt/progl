@@ -11,3 +11,6 @@ profiles.clj
 .nrepl-port
 /log
 progl.iml
+resources/public/vendor/
+node_modules/
+resources/public/assets/

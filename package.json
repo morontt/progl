@@ -1,0 +1,17 @@
+{
+    "name": "progl",
+    "version": "0.0.1",
+    "private": true,
+    "author": {
+        "name": "Alexander Harchenko",
+        "email": "morontt@gmail.com",
+        "url": "https://morontt.info"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "grunt": "1.0.1",
+        "grunt-contrib-concat": "1.0.1",
+        "grunt-contrib-cssmin": "1.0.2",
+        "grunt-contrib-uglify": "2.0.0"
+    }
+}

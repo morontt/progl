@@ -1,48 +1,142 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <META name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to progl</title>
-    {% style "/css/screen.css" %}
-  </head>
-  <body>
-      <!-- navbar -->
-      <nav class="navbar navbar-dark bg-primary" role="navigation">
-          <button class="navbar-toggler hidden-sm-up"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapsing-navbar">
-              &#9776;
-          </button>
-          <div class="collapse navbar-toggleable-xs" id="collapsing-navbar">
-              <a class="navbar-brand" href="{{servlet-context}}/">progl</a>
-              <ul class="nav navbar-nav">
-                  <li class="nav-item">
-                      <a href="{{servlet-context}}/"
-                         class="nav-link{% ifequal page "home.html" %} active{%endifequal%}">
-                      home
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="{{servlet-context}}/about"
-                         class="nav-link{% ifequal page "about.html" %} active{%endifequal%}">
-                      about
-                      </a>
-                  </li>
-              </ul>
-          </div>
-      </nav>
-
-    <div class="container">
-      {% block content %}
-      {% endblock %}
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="morontt">
+    <meta name="description" content="{% block description %}Персональный блог Харченко Александра. Статьи и заметки, посвящённые, в основном, программированию для всемирной паутины.{% endblock %}">
+    <title>{% block pagetitle %}morontt.info{% endblock %}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#859c40">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#859c40">
+    <link href="/assets/progl.min.css" media="screen" rel="stylesheet" type="text/css">
+    <!--[if lte IE 7]>
+        <link href="/css/yaml/core/iehacks.min.css" media="screen" rel="stylesheet" type="text/css">
+    <![endif]-->
+    <link href="https://morontt.info/feed/rss" rel="alternate" type="application/rss+xml" title="RSS">
+    <link href="https://morontt.info/feed/atom" rel="alternate" type="application/atom+xml" title="Atom">
+    <link href="//www.google-analytics.com" rel="dns-prefetch">
+    <link href="//mc.yandex.ru" rel="dns-prefetch">
+    <link href="//s09.flagcounter.com" rel="dns-prefetch">
+    <link href="/humans.txt" rel="author" type="text/plain">
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+    <!--[if gte IE 7]>
+        <style type="text/css">
+            #main .ym-wrapper { background: #DCE7B4; }
+        </style>
+    <![endif]-->
+    <!--[if IE 9]>
+        <style type="text/css">
+            #main .ym-wrapper { background: url('/img/background/bg-main-ym-wrapper.svg'); }
+        </style>
+    <![endif]-->
+</head>
+<body>
+<header>
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+            <span>morontt.info</span>
+        </div>
     </div>
+</header>
+<nav id="navigation">
+    <div class="ym-wrapper">
+        <div class="ym-hlist">
+            <div id="social-links">
+                <a class="s-rss" href="/feed/rss" title="RSS">rss</a>
+                <a class="s-fcb" href="#" title="facebook">facebook</a>
+                <a class="s-twt" href="#" title="twitter">twitter</a>
+                <a class="s-ins" href="#" title="instagram">instagram</a>
+                <a class="s-lj" href="#" title="livejournal">livejournal</a>
+                <a class="s-git" href="#" title="github">github</a>
+                <a class="s-gp" href="#" title="google+">googleplus</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div id="main">
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+            <div class="ym-column">
+                <section class="ym-col1">
+                    <div class="ym-cbox">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </section>
+                <aside class="ym-col3">
+                    <div class="ym-cbox">
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+            <div class="ym-grid">
+                <div class="ym-g33 ym-gl">
+                    <div class="ym-gbox">
+                        Layout based on <a href="http://www.yaml.de" class="ext">YAML</a>
+                    </div>
+                </div>
+                <div class="ym-g33 ym-gl">
+                    <div class="ym-gbox">
+                        <a href="#"
+                           title="Клацни здесь для проверки страницы"
+                           class="ext">Valid HTML</a>
+                    </div>
+                </div>
+                <div class="ym-g33 ym-gr">
+                    <div class="ym-gbox">
+                        <a href="/">Вход</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% block javascript %}
+    <script type="text/javascript" src="/assets/progl.min.js"></script>
+{% endblock %}
+<script type="text/javascript">
+    SyntaxHighlighter.all();
 
-    <script type="text/javascript">
-      var context = "{{servlet-context}}";
-    </script>
-    {% block page-scripts %}
-    {% endblock %}
-  </body>
-</html>
+    $(function () {
+        if (document.head) {
+            var href_cache = {};
+
+            $('a.reactive').hover(function () {
+                var keys = $(this).attr('href').match(/^[^#]+/);
+                var url = keys[0];
+
+                if (href_cache[url] === undefined) {
+                    href_cache[url] = true;
+
+                    var link = document.createElement('link');
+                    link.rel = 'prefetch';
+                    link.href = url;
+                    document.head.appendChild(link);
+                }
+            });
+        }
+    });
+</script>
+</body>
