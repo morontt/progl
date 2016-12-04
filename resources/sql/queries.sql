@@ -1,21 +1,6 @@
--- :name create-user! :! :n
--- :doc creates a new user record
-INSERT INTO users
-(id, first_name, last_name, email, pass)
-VALUES (:id, :first_name, :last_name, :email, :pass)
-
--- :name update-user! :! :n
--- :doc update an existing user record
-UPDATE users
-SET first_name = :first_name, last_name = :last_name, email = :email
-WHERE id = :id
-
--- :name get-user :? :1
--- :doc retrieve a user given the id.
-SELECT * FROM users
-WHERE id = :id
-
--- :name delete-user! :! :n
--- :doc delete a user given the id
-DELETE FROM users
-WHERE id = :id
+-- :name get-visible-posts :? :*
+-- :doc get visible posts
+SELECT `p`.`title`, `p`.`text_post`, `p`.`url`, `p`.`time_created`, `c`.`name` AS `cat_name`, `c`.`url` AS `cat_url`
+FROM `posts` AS `p`
+INNER JOIN `category` AS `c` ON c.id = p.category_id
+WHERE (p.hide = 0) ORDER BY `p`.`time_created` DESC LIMIT 10

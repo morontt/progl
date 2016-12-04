@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row">
-  <div class="col-sm-12">
-    Hello World
-  </div>
-</div>
+    {% for topic in topics %}
+        <article>
+            <time datetime="{{topic.time_created|date:"yyyy-MM-dd'T'HH:mm:ssZZ"}}">
+                {{topic.time_created|date:"d MMM yyyy, HH:mm"}}
+            </time>
+            <h1>
+                <a href="/{{topic.cat_url}}"
+                   class="reactive">{{topic.cat_name}}</a> &rarr;
+                <a href="/{{topic.url}}"
+                   class="reactive">{{topic.title}}</a>
+            </h1>
+            <div class="text-post">{{topic.text_post|safe}}</div>
+        </article>
+    {% endfor %}
 {% endblock %}
