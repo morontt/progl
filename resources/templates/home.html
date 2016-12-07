@@ -3,7 +3,7 @@
     {% for topic in topics %}
         <article>
             <time datetime="{{topic.time_created|date:"yyyy-MM-dd'T'HH:mm:ssZZ"}}">
-                {{topic.time_created|date:"d MMM yyyy, HH:mm"}}
+                {{topic.time_created|date:"dd MMM yyyy, HH:mm"}}
             </time>
             <h1>
                 <a href="/{{topic.cat_url}}"
